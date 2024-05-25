@@ -1,0 +1,4 @@
+{
+    "endpoint": "8081",
+    "kraken-endpoint": "https://api.kraken.com/0/public/Ticker"
+}

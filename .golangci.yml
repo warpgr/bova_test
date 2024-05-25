@@ -1,0 +1,64 @@
+run:
+  timeout: 5m
+
+issues:
+  exclude-rules:
+    - path: "_gen.go"
+      linters:
+        - govet
+        - gofmt
+
+linters-settings:
+  govet:
+    shadow: true
+  gofmt:
+    simplify: true
+  gocyclo:
+    min-complexity: 15
+  goconst:
+    min-len: 3
+    min-occurrences: 2
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+    errcheck.exclude-functions: true
+  ineffassign:
+    enabled: true
+  misspell:
+    locale: US
+  gocritic:
+    enabled-checks:
+  gosec:
+    severity: "high"
+    confidence: "medium"
+
+linters:
+  enable:
+    - govet
+    - gofmt
+    - gocyclo
+    - ineffassign
+    - goconst
+    - errcheck
+    - misspell
+    - unparam
+    - gosec
+    - gocritic
+    - nakedret
+    - prealloc
+    - staticcheck
+    - godot
+    - godox
+
+exclude:
+  - "generated"
+  - "comment.*or.*unexported"
+  - "should.*err.*not.*nil"
+
+output:
+  formats: colored-line-number
+  print-issued-lines: true
+
+cache:
+  enabled: true
+  dir: "./.cache/golangci-lint"
